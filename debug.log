@@ -1,0 +1,4 @@
+[1013/194918.657:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não conseguiu localizar o caminho especificado. (0x3)
+[1019/230138.042:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não conseguiu localizar o caminho especificado. (0x3)
+[1022/000309.395:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não conseguiu localizar o caminho especificado. (0x3)
+[1022/005819.239:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não conseguiu localizar o caminho especificado. (0x3)
