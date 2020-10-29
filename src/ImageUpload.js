@@ -6,6 +6,7 @@ import { Input, Button } from "@material-ui/core";
 
 const ImageUpload = ({ username }) => {
   const [image, setImage] = useState(null);
+  const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);
   const [caption, setCaption] = useState("");
 
@@ -37,7 +38,8 @@ const ImageUpload = ({ username }) => {
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
-
+            setUrl(url);
+            
             // post image inside db
             db.collection("posts").add({
               imageUrl: url,
