@@ -39,7 +39,7 @@ const ImageUpload = ({ username }) => {
           .getDownloadURL()
           .then((url) => {
             setUrl(url);
-            
+
             // post image inside db
             db.collection("posts").add({
               imageUrl: url,
@@ -66,7 +66,7 @@ const ImageUpload = ({ username }) => {
       />
       <div>
         <input type="file" onChange={handleChange} />
-        <Button className="imageupload__button" onClick={handleUpload}>
+        <Button className="imageupload__button" disabled={!image} onClick={handleUpload}>
           Upload
         </Button>
       </div>
