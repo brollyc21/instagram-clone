@@ -4,7 +4,6 @@ import Post from './Post';
 import { db, auth } from './firebase';
 import { Button, Input, makeStyles, Modal } from '@material-ui/core';
 import ImageUpload from './ImageUpload';
-import InstagramEmbed from 'react-instagram-embed';
 
 function getModalStyle() {
   const top = 50;
@@ -47,7 +46,6 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if(authUser) {
         //user has logged in...
-        console.log(authUser);
         setUser(authUser);
         
         if(authUser.displayName) {
@@ -76,7 +74,7 @@ function App() {
       .orderBy('timestamp', 'desc')
       .onSnapshot(snapshot => {
       // every time a new post is added, this code fires...
-        setPosts(snapshot.docs.map(doc => ({
+        setPosts(snapshot.docs.map((doc) => ({
           id: doc.id,
           post: doc.data()
         })));
@@ -103,11 +101,6 @@ function App() {
 
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((authUser) => {
-        return authUser.user.updateProfile({
-          displayName: username
-        })
-      })
       .catch((error) => alert(error.message));
     
       setOpenSingIn(false);
@@ -199,27 +192,11 @@ function App() {
       </div>
 
       <div className="app__posts">
-        <div className="app__postsLeft">
-          { 
-            posts.map(({id, post}) => 
-              <Post key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
-            )
-          }
-        </div>
-        <div className="app__postsRight">
-          <InstagramEmbed
-            url='https://instagr.am/p/Zw9o4/'
-            maxWidth={320}
-            hideCaption={false}
-            containerTagName='div'
-            protocol=''
-            injectScript
-            onLoading={() => {}}
-            onSuccess={() => {}}
-            onAfterRender={() => {}}
-            onFailure={() => {}}
-          />
-        </div>
+        { 
+          posts.map(({id, post}) => 
+            <Post key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+          )
+        }
       </div>
 
       {user?.displayName ? (

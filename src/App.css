@@ -14,10 +14,6 @@
   padding: 10px 30px;
 }
 
-.app__postsRight {
-  margin-left: 10px;
-}
-
 .app__headerImage {
   object-fit: contain;
 }
