@@ -4,7 +4,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { db } from './firebase';
 import firebase from 'firebase';
 
-function Post({ postId, user, username, caption, imageUrl}) {
+function Post({ postId, user, username, login, caption, imageUrl}) {
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState('');
 
@@ -62,7 +62,7 @@ function Post({ postId, user, username, caption, imageUrl}) {
                 ))}
             </div>
 
-            {user && (
+            {user?.displayName && login && (
                 <form className="post__commentBox">
                 <input
                     className="post__input"
