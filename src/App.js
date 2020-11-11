@@ -184,7 +184,7 @@ function App() {
           alt=""
         />
         {user?.displayName && login ? (
-          <Button onClick={() => auth.signOut()}>Logout</Button>
+          <Button onClick={() => auth.signOut() && setlogin(false)}>Logout</Button>
         ) : (
           <div className="app__loginContainer">
             <Button onClick={() => setOpenSingIn(true)}>Login</Button>
