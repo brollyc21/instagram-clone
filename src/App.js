@@ -39,6 +39,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [open, setOpen] = useState(false);
   const [openSignIn, setOpenSingIn] = useState(false);
+  const [login, setlogin] = useState(false);
 
   // useEffect -> Runs a piuece of code based on a specific condition
 
@@ -104,6 +105,7 @@ function App() {
       .catch((error) => alert(error.message));
     
       setOpenSingIn(false);
+      setlogin(true);
   }
 
 
@@ -181,27 +183,26 @@ function App() {
           src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
           alt=""
         />
-        {user?.displayName ? (
+        {user?.displayName && login ? (
           <Button onClick={() => auth.signOut()}>Logout</Button>
         ) : (
           <div className="app__loginContainer">
-            <Button onClick={() => setOpenSingIn(true)}>Sign In</Button>
+            <Button onClick={() => setOpenSingIn(true)}>Login</Button>
             <Button onClick={() => setOpen(true)}>Sign Up</Button>
           </div>
        )}
       </div>
-
       <div className="app__posts">
         <div className="app__postsLeft">
           { 
             posts.map(({id, post}) => 
-              <Post key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+              <Post key={id} postId={id} login={login} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
             )
           }
         </div>
       </div>
 
-      {user?.displayName ? (
+      {user?.displayName && login ? (
         <div className="app__upload">
           <ImageUpload username={user.displayName} />
         </div>
