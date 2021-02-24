@@ -1,3 +1,7 @@
+Live in: https://instagram-clone-react-1bc58.web.app/
+
+## Available Scripts
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
