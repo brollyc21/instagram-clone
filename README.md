@@ -1,3 +1,5 @@
+# InstagramClone
+
 Live in: https://instagram-clone-react-1bc58.web.app/
 
 ## Available Scripts
